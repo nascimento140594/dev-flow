@@ -1,0 +1,23 @@
+{% extends "tasks/base.html" %}
+
+{% block content %}
+
+<h1>Tasks</h1>
+
+<a href="{% url 'task-create' %}">
+    Create Task
+</a>
+
+<hr>
+
+{% for task in tasks %}
+    <p>
+        <a href="{% url 'task-detail' task.pk %}">
+            {{ task.name }}
+        </a>
+    </p>
+{% empty %}
+    <p>No tasks found.</p>
+{% endfor %}
+
+{% endblock %}

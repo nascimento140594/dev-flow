@@ -1,0 +1,24 @@
+{% extends "tasks/base.html" %}
+
+{% block content %}
+
+<h1>DevFlow Dashboard</h1>
+
+<p>Task Management Platform for IT Teams</p>
+
+<hr>
+
+<div>
+    <h3>Total Tasks: {{ tasks_count }}</h3>
+    <h3>Total Teams: {{ teams_count }}</h3>
+    <h3>Total Workers: {{ workers_count }}</h3>
+    <h3>Total Task Types: {{ task_types_count }}</h3>
+</div>
+
+<hr>
+
+<a href="{% url 'task-list' %}">
+    View Tasks
+</a>
+
+{% endblock %}
