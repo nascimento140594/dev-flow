@@ -34,8 +34,6 @@ INSTALLED_APPS = [
 
     # Local apps
     "tasks",
-    "workers",
-    "teams",
 ]
 
 
