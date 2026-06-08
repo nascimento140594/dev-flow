@@ -1,0 +1,21 @@
+{% extends "tasks/base.html" %}
+
+{% block content %}
+
+<h1>Task Types</h1>
+
+<a href="{% url 'tasktype-create' %}">
+    Create Task Type
+</a>
+
+<hr>
+
+{% for task_type in task_types %}
+    <p>
+        {{ task_type.name }}
+    </p>
+{% empty %}
+    <p>No task types found.</p>
+{% endfor %}
+
+{% endblock %}

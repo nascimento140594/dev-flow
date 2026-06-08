@@ -1,0 +1,21 @@
+{% extends "tasks/base.html" %}
+
+{% block content %}
+
+<h1>Workers</h1>
+
+<a href="{% url 'worker-create' %}">
+    Create Worker
+</a>
+
+<hr>
+
+{% for worker in workers %}
+    <p>
+        {{ worker.name }}
+    </p>
+{% empty %}
+    <p>No workers found.</p>
+{% endfor %}
+
+{% endblock %}
