@@ -2,13 +2,13 @@
 
 DevFlow is a web application built with Django for managing software development workflows and IT teams.
 
-The platform allows project managers and team members to organize tasks, assign workers, manage teams, and track task progress through a simple and intuitive interface.
+The platform enables project managers and team members to organize tasks, manage teams, assign workers, and track project progress through a simple and intuitive interface.
 
 ---
 
 # ✨ Features
 
-### Task Management
+## Task Management
 
 * Create tasks
 * View task details
@@ -17,20 +17,30 @@ The platform allows project managers and team members to organize tasks, assign 
 * Set priorities
 * Track task status
 * Manage deadlines
-
-### Team Management
-
-* Manage development teams
-* Manage workers
-* Assign workers to teams
 * Assign workers to tasks
 
-### Task Classification
+## Team Management
+
+* Create teams
+* Update teams
+* Delete teams
+* Assign workers to teams
+* Manage team members
+
+## Task Classification
 
 * Create task types
+* Update task types
+* Delete task types
 * Organize tasks by category
 
-### Administration
+## Authentication
+
+* User login/logout
+* Protected views
+* User-specific access control
+
+## Administration
 
 * Django Admin Panel
 * Bootstrap-based interface
@@ -58,11 +68,11 @@ The application is composed of four main entities:
 * TaskType
 * Task
 
-### Entity Relationship Diagram (ERD)
+## Entity Relationship Diagram (ERD)
 
 ![Database Diagram](database-diagram.png)
 
-### Relationships
+## Relationships
 
 * One Team can contain multiple Workers
 * One Worker can belong to multiple Teams
@@ -105,49 +115,63 @@ The application is composed of four main entities:
 
 # ⚙ Installation
 
-Clone the repository:
+## Clone the repository
 
 ```bash
 git clone https://github.com/nascimento140594/dev-flow.git
 ```
 
-Navigate to the project directory:
+## Navigate to the project directory
 
 ```bash
 cd dev-flow
 ```
 
-Create a virtual environment:
+## Create a virtual environment
 
 ```bash
 python -m venv .venv
 ```
 
-Activate the virtual environment:
+## Activate the virtual environment
+
+### Windows
 
 ```bash
 .venv\Scripts\activate
 ```
 
-Install dependencies:
+### Linux/macOS
+
+```bash
+source .venv/bin/activate
+```
+
+## Install dependencies
 
 ```bash
 pip install -r requirements.txt
 ```
 
-Apply migrations:
+## Apply migrations
 
 ```bash
 python manage.py migrate
 ```
 
-Run the development server:
+## Create a superuser (optional)
+
+```bash
+python manage.py createsuperuser
+```
+
+## Run the development server
 
 ```bash
 python manage.py runserver
 ```
 
-Open:
+Open in your browser:
 
 ```text
 http://127.0.0.1:8000/
@@ -164,13 +188,24 @@ dev-flow/
 ├── tasks/
 ├── templates/
 ├── screenshots/
-├── static/
 │
 ├── README.md
 ├── database-diagram.png
-├── manage.py
-└── requirements.txt
+├── requirements.txt
+└── manage.py
 ```
+
+---
+
+# 🔑 Main Functionalities
+
+* Manage software development tasks
+* Manage teams and workers
+* Assign workers to teams
+* Assign workers to tasks
+* Organize tasks by task type
+* Track task priorities and deadlines
+* Use Django Admin for advanced management
 
 ---
 
@@ -178,8 +213,7 @@ dev-flow/
 
 Matheus Araujo Nascimento
 
-GitHub:
-https://github.com/nascimento140594
+GitHub: https://github.com/nascimento140594
 
 ---
 
@@ -193,5 +227,7 @@ This project was developed as part of a Django Portfolio Project and demonstrate
 * Django Templates
 * Bootstrap Integration
 * Database Modeling
+* Authentication System
 * Git & GitHub Workflow
 * Project Documentation
+* Relational Database Design

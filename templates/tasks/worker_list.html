@@ -10,12 +10,22 @@
 
 <hr>
 
-{% for worker in workers %}
-    <p>
-        {{ worker.name }}
-    </p>
-{% empty %}
-    <p>No workers found.</p>
-{% endfor %}
+<ul>
+    {% for worker in workers %}
+        <li>
+            {{ worker.name }}
+
+            <a href="{% url 'worker-update' pk=worker.id %}">
+                Edit
+            </a>
+
+            <a href="{% url 'worker-delete' pk=worker.id %}">
+                Delete
+            </a>
+        </li>
+    {% empty %}
+        <li>No workers found.</li>
+    {% endfor %}
+</ul>
 
 {% endblock %}
