@@ -1,0 +1,36 @@
+{% extends "tasks/base.html" %}
+
+{% block content %}
+
+<h1>Team Details</h1>
+
+<hr>
+
+<p><strong>Name:</strong> {{ team.name }}</p>
+
+{% if team.workers.all %}
+    <h3>Workers</h3>
+    <ul>
+        {% for worker in team.workers.all %}
+            <li>{{ worker.name }}</li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>No workers assigned.</p>
+{% endif %}
+
+<hr>
+
+<a href="{% url 'tasks:team-update' pk=team.id %}">
+    Edit
+</a>
+
+<a href="{% url 'tasks:team-delete' pk=team.id %}">
+    Delete
+</a>
+
+<a href="{% url 'tasks:team-list' %}">
+    Back to Teams
+</a>
+
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends "tasks/base.html" %}
+
+{% block content %}
+
+<h1>Task Type Details</h1>
+
+<hr>
+
+<p><strong>Name:</strong> {{ task_type.name }}</p>
+
+<hr>
+
+<a href="{% url 'tasks:tasktype-update' pk=task_type.id %}">
+    Edit
+</a>
+
+<a href="{% url 'tasks:tasktype-delete' pk=task_type.id %}">
+    Delete
+</a>
+
+<a href="{% url 'tasks:tasktype-list' %}">
+    Back to Task Types
+</a>
+
+{% endblock %}

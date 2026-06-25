@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 
 class Team(models.Model):
@@ -22,8 +23,18 @@ class TaskType(models.Model):
 
 
 class Worker(models.Model):
+
+    user = models.OneToOneField(
+        User,
+        on_delete=models.CASCADE,
+        null=True,
+        blank=True
+    )
+
     name = models.CharField(max_length=100)
+
     position = models.CharField(max_length=100)
+
     teams = models.ManyToManyField(
         Team,
         related_name="workers",
