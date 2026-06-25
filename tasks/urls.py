@@ -10,26 +10,30 @@ from .views import (
     TaskDeleteView,
 
     TeamListView,
+    TeamDetailView,
     TeamCreateView,
     TeamUpdateView,
     TeamDeleteView,
 
     WorkerListView,
+    WorkerDetailView,
     WorkerCreateView,
     WorkerUpdateView,
     WorkerDeleteView,
 
     TaskTypeListView,
+    TaskTypeDetailView,
     TaskTypeCreateView,
     TaskTypeUpdateView,
     TaskTypeDeleteView,
 )
 
+app_name = "tasks"
+
 urlpatterns = [
     path("", HomeView.as_view(), name="home"),
 
     # TASKS
-
     path("tasks/", TaskListView.as_view(), name="task-list"),
 
     path(
@@ -57,11 +61,16 @@ urlpatterns = [
     ),
 
     # TEAMS
-
     path(
         "teams/",
         TeamListView.as_view(),
         name="team-list",
+    ),
+
+    path(
+        "teams/<int:pk>/",
+        TeamDetailView.as_view(),
+        name="team-detail",
     ),
 
     path(
@@ -83,11 +92,16 @@ urlpatterns = [
     ),
 
     # WORKERS
-
     path(
         "workers/",
         WorkerListView.as_view(),
         name="worker-list",
+    ),
+
+    path(
+        "workers/<int:pk>/",
+        WorkerDetailView.as_view(),
+        name="worker-detail",
     ),
 
     path(
@@ -109,11 +123,16 @@ urlpatterns = [
     ),
 
     # TASK TYPES
-
     path(
         "task-types/",
         TaskTypeListView.as_view(),
         name="tasktype-list",
+    ),
+
+    path(
+        "task-types/<int:pk>/",
+        TaskTypeDetailView.as_view(),
+        name="tasktype-detail",
     ),
 
     path(

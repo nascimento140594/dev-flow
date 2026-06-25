@@ -4,7 +4,7 @@
 
 <h1>Workers</h1>
 
-<a href="{% url 'worker-create' %}">
+<a href="{% url 'tasks:worker-create' %}">
     Create Worker
 </a>
 
@@ -13,13 +13,15 @@
 <ul>
     {% for worker in workers %}
         <li>
-            {{ worker.name }}
+            <a href="{% url 'tasks:worker-detail' pk=worker.id %}">
+                {{ worker.name }}
+            </a>
 
-            <a href="{% url 'worker-update' pk=worker.id %}">
+            <a href="{% url 'tasks:worker-update' pk=worker.id %}">
                 Edit
             </a>
 
-            <a href="{% url 'worker-delete' pk=worker.id %}">
+            <a href="{% url 'tasks:worker-delete' pk=worker.id %}">
                 Delete
             </a>
         </li>

@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+{% extends "tasks/base.html" %}
 
 {% block content %}
   <h1>DevFlow Dashboard</h1>
@@ -9,6 +9,12 @@
     <li>
       <a href="{% url 'tasks:worker-list' %}">
         Workers: {{ num_workers }}
+      </a>
+    </li>
+
+    <li>
+      <a href="{% url 'tasks:team-list' %}">
+        Teams: {{ num_teams }}
       </a>
     </li>
 
