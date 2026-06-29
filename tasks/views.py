@@ -54,14 +54,28 @@ class TaskDetailView(LoginRequiredMixin, DetailView):
 
 class TaskCreateView(LoginRequiredMixin, CreateView):
     model = Task
-    fields = "__all__"
+    fields = [
+        "name",
+        "description",
+        "deadline",
+        "priority",
+        "task_type",
+        "assignees",
+    ]
     template_name = "tasks/task_form.html"
     success_url = reverse_lazy("tasks:task-list")
 
 
 class TaskUpdateView(LoginRequiredMixin, UpdateView):
     model = Task
-    fields = "__all__"
+    fields = [
+        "name",
+        "description",
+        "deadline",
+        "priority",
+        "task_type",
+        "assignees",
+    ]
     template_name = "tasks/task_form.html"
     success_url = reverse_lazy("tasks:task-list")
 
@@ -88,14 +102,14 @@ class TeamDetailView(LoginRequiredMixin, DetailView):
 
 class TeamCreateView(LoginRequiredMixin, CreateView):
     model = Team
-    fields = "__all__"
+    fields = ["name"]
     template_name = "tasks/team_form.html"
     success_url = reverse_lazy("tasks:team-list")
 
 
 class TeamUpdateView(LoginRequiredMixin, UpdateView):
     model = Team
-    fields = "__all__"
+    fields = ["name"]
     template_name = "tasks/team_form.html"
     success_url = reverse_lazy("tasks:team-list")
 
@@ -122,14 +136,22 @@ class WorkerDetailView(LoginRequiredMixin, DetailView):
 
 class WorkerCreateView(LoginRequiredMixin, CreateView):
     model = Worker
-    fields = "__all__"
+    fields = [
+        "user",
+        "team",
+        "position",
+    ]
     template_name = "tasks/worker_form.html"
     success_url = reverse_lazy("tasks:worker-list")
 
 
 class WorkerUpdateView(LoginRequiredMixin, UpdateView):
     model = Worker
-    fields = "__all__"
+    fields = [
+        "user",
+        "team",
+        "position",
+    ]
     template_name = "tasks/worker_form.html"
     success_url = reverse_lazy("tasks:worker-list")
 
@@ -156,14 +178,14 @@ class TaskTypeDetailView(LoginRequiredMixin, DetailView):
 
 class TaskTypeCreateView(LoginRequiredMixin, CreateView):
     model = TaskType
-    fields = "__all__"
+    fields = ["name"]
     template_name = "tasks/tasktype_form.html"
     success_url = reverse_lazy("tasks:tasktype-list")
 
 
 class TaskTypeUpdateView(LoginRequiredMixin, UpdateView):
     model = TaskType
-    fields = "__all__"
+    fields = ["name"]
     template_name = "tasks/tasktype_form.html"
     success_url = reverse_lazy("tasks:tasktype-list")
 
@@ -172,3 +194,4 @@ class TaskTypeDeleteView(LoginRequiredMixin, DeleteView):
     model = TaskType
     template_name = "tasks/tasktype_confirm_delete.html"
     success_url = reverse_lazy("tasks:tasktype-list")
+
