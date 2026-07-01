@@ -11,6 +11,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 
 # SECURITY
+
 SECRET_KEY = "django-insecure-change-this-key"
 
 DEBUG = True
@@ -27,6 +28,9 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+
+    # Third-party apps
+    "rest_framework",
 
     # Local apps
     "tasks",
@@ -129,11 +133,9 @@ MEDIA_ROOT = BASE_DIR / "media"
 
 # LOGIN / LOGOUT
 
+LOGIN_URL = "/login/"
 LOGIN_REDIRECT_URL = "/"
-
-LOGOUT_REDIRECT_URL = "/"
-
-LOGIN_URL = "login"
+LOGOUT_REDIRECT_URL = "/login/"
 
 
 # DEFAULT PRIMARY KEY

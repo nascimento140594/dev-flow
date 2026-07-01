@@ -1,0 +1,33 @@
+{% extends "tasks/base.html" %}
+
+{% block content %}
+
+<h1>Workers</h1>
+
+<a href="{% url 'tasks:worker-create' %}">
+    Create Worker
+</a>
+
+<hr>
+
+<ul>
+    {% for worker in workers %}
+        <li>
+            <a href="{% url 'tasks:worker-detail' pk=worker.id %}">
+                {{ worker.name }}
+            </a>
+
+            <a href="{% url 'tasks:worker-update' pk=worker.id %}">
+                Edit
+            </a>
+
+            <a href="{% url 'tasks:worker-delete' pk=worker.id %}">
+                Delete
+            </a>
+        </li>
+    {% empty %}
+        <li>No workers found.</li>
+    {% endfor %}
+</ul>
+
+{% endblock %}

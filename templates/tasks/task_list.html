@@ -4,7 +4,7 @@
 
 <h1>Tasks</h1>
 
-<a href="{% url 'task-create' %}">
+<a href="{% url 'tasks:task-create' %}">
     Create Task
 </a>
 
@@ -12,7 +12,7 @@
 
 {% for task in tasks %}
     <p>
-        <a href="{% url 'task-detail' task.pk %}">
+        <a href="{% url 'tasks:task-detail' task.pk %}">
             {{ task.name }}
         </a>
     </p>

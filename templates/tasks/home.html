@@ -1,24 +1,63 @@
 {% extends "tasks/base.html" %}
 
 {% block content %}
+  <h1>DevFlow Dashboard</h1>
 
-<h1>DevFlow Dashboard</h1>
+  <h2>Statistics</h2>
 
-<p>Task Management Platform for IT Teams</p>
+  <ul>
+    <li>
+      <a href="{% url 'tasks:worker-list' %}">
+        Workers: {{ num_workers }}
+      </a>
+    </li>
 
-<hr>
+    <li>
+      <a href="{% url 'tasks:team-list' %}">
+        Teams: {{ num_teams }}
+      </a>
+    </li>
 
-<div>
-    <h3>Total Tasks: {{ tasks_count }}</h3>
-    <h3>Total Teams: {{ teams_count }}</h3>
-    <h3>Total Workers: {{ workers_count }}</h3>
-    <h3>Total Task Types: {{ task_types_count }}</h3>
-</div>
+    <li>
+      <a href="{% url 'tasks:tasktype-list' %}">
+        Task Types: {{ num_task_types }}
+      </a>
+    </li>
 
-<hr>
+    <li>
+      <a href="{% url 'tasks:task-list' %}">
+        Tasks: {{ num_tasks }}
+      </a>
+    </li>
+  </ul>
 
-<a href="{% url 'task-list' %}">
-    View Tasks
-</a>
+  <hr>
 
+  <h2>Quick Actions</h2>
+
+  <ul>
+    <li>
+      <a href="{% url 'tasks:task-create' %}">
+        Create Task
+      </a>
+    </li>
+
+    <li>
+      <a href="{% url 'tasks:worker-create' %}">
+        Create Worker
+      </a>
+    </li>
+
+    <li>
+      <a href="{% url 'tasks:tasktype-create' %}">
+        Create Task Type
+      </a>
+    </li>
+
+    <li>
+      <a href="{% url 'tasks:team-create' %}">
+        Create Team
+      </a>
+    </li>
+  </ul>
 {% endblock %}

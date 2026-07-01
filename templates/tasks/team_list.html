@@ -1,0 +1,23 @@
+{% extends "tasks/base.html" %}
+
+{% block content %}
+
+<h1>Teams</h1>
+
+<a href="{% url 'tasks:team-create' %}">
+    Create Team
+</a>
+
+<hr>
+
+{% for team in teams %}
+    <p>
+        <a href="{% url 'tasks:team-detail' team.pk %}">
+            {{ team.name }}
+        </a>
+    </p>
+{% empty %}
+    <p>No teams found.</p>
+{% endfor %}
+
+{% endblock %}
