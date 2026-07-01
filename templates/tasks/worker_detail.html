@@ -7,7 +7,11 @@
 <hr>
 
 <p><strong>Name:</strong> {{ worker.name }}</p>
-<p><strong>Email:</strong> {{ worker.email }}</p>
+<p><strong>Position:</strong> {{ worker.position }}</p>
+
+{% if worker.user %}
+    <p><strong>User:</strong> {{ worker.user.username }}</p>
+{% endif %}
 
 {% if worker.teams.all %}
     <h3>Teams</h3>

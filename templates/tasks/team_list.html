@@ -4,7 +4,7 @@
 
 <h1>Teams</h1>
 
-<a href="{% url 'team-create' %}">
+<a href="{% url 'tasks:team-create' %}">
     Create Team
 </a>
 
@@ -12,7 +12,9 @@
 
 {% for team in teams %}
     <p>
-        {{ team.name }}
+        <a href="{% url 'tasks:team-detail' team.pk %}">
+            {{ team.name }}
+        </a>
     </p>
 {% empty %}
     <p>No teams found.</p>

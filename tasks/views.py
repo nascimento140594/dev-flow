@@ -138,8 +138,9 @@ class WorkerCreateView(LoginRequiredMixin, CreateView):
     model = Worker
     fields = [
         "user",
-        "team",
+        "name",
         "position",
+        "teams",
     ]
     template_name = "tasks/worker_form.html"
     success_url = reverse_lazy("tasks:worker-list")
@@ -149,8 +150,9 @@ class WorkerUpdateView(LoginRequiredMixin, UpdateView):
     model = Worker
     fields = [
         "user",
-        "team",
+        "name",
         "position",
+        "teams",
     ]
     template_name = "tasks/worker_form.html"
     success_url = reverse_lazy("tasks:worker-list")

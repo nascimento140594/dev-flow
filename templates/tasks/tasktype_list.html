@@ -4,7 +4,7 @@
 
 <h1>Task Types</h1>
 
-<a href="{% url 'tasktype-create' %}">
+<a href="{% url 'tasks:tasktype-create' %}">
     Create Task Type
 </a>
 
@@ -12,7 +12,9 @@
 
 {% for task_type in task_types %}
     <p>
-        {{ task_type.name }}
+        <a href="{% url 'tasks:tasktype-detail' task_type.pk %}">
+            {{ task_type.name }}
+        </a>
     </p>
 {% empty %}
     <p>No task types found.</p>
